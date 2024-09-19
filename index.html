@@ -14,18 +14,19 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', sans-serif;
-            background: linear-gradient(135deg, #2c3e50, #4ca1af);
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af); /* Trustworthy blue gradient */
+            background-color: #2c3e50; /* Fallback for older browsers */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh; /* Ensure the body covers the viewport height */
+            overflow: auto; /* Allow scrolling */
             position: relative;
+            color: white;
         }
 
-        /* Adding background animation */
+        /* Background animation */
         .background-animation {
             position: absolute;
             width: 100%;
@@ -39,35 +40,35 @@
         .background-animation div {
             position: absolute;
             display: block;
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             background: rgba(255, 255, 255, 0.1);
             animation: float 20s infinite ease-in-out;
             border-radius: 50%;
         }
 
         .background-animation div:nth-child(1) {
-            top: 10%;
-            left: 20%;
+            top: 20%;
+            left: 15%;
             animation-duration: 18s;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
         }
 
         .background-animation div:nth-child(2) {
             top: 60%;
             left: 70%;
             animation-duration: 22s;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
         }
 
         .background-animation div:nth-child(3) {
             top: 80%;
             left: 30%;
             animation-duration: 15s;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
         }
 
         @keyframes float {
@@ -75,7 +76,7 @@
                 transform: translateY(0) scale(1);
             }
             50% {
-                transform: translateY(-50px) scale(1.1);
+                transform: translateY(-40px) scale(1.1);
             }
             100% {
                 transform: translateY(0) scale(1);
@@ -83,14 +84,15 @@
         }
 
         .container {
-            background-color: #fff;
-            max-width: 500px;
-            width: 100%;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background-color: rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            width: 90%; /* Adjust width to be responsive */
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
-            animation: popIn 1s ease-in-out;
+            animation: popIn 1.2s ease-in-out;
         }
 
         @keyframes popIn {
@@ -106,14 +108,14 @@
 
         h1 {
             margin-bottom: 20px;
-            font-size: 28px;
-            color: #2c3e50;
+            font-size: 36px;
+            color: #ffffff;
         }
 
         p {
             margin-bottom: 30px;
             font-size: 16px;
-            color: #7f8c8d;
+            color: #e0e0e0;
         }
 
         form {
@@ -121,19 +123,19 @@
             flex-direction: column;
         }
 
-        input, textarea {
+        input, select, textarea {
             margin-bottom: 20px;
-            padding: 12px;
+            padding: 15px;
             font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
-        input:focus, textarea:focus {
-            border-color: #4ca1af;
-            box-shadow: 0 0 10px rgba(76, 161, 175, 0.3);
+        input:focus, select:focus, textarea:focus {
             outline: none;
+            transform: scale(1.05);
         }
 
         textarea {
@@ -141,19 +143,24 @@
             height: 120px;
         }
 
+        select {
+            color: #555;
+        }
+
         button {
-            padding: 15px;
+            padding: 18px;
             font-size: 18px;
             color: white;
-            background: linear-gradient(135deg, #4ca1af, #2c3e50);
+            background: linear-gradient(135deg, #3498db, #2980b9); /* Trusted blue buttons */
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         button:hover {
-            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            background: linear-gradient(135deg, #2980b9, #3498db);
             transform: translateY(-3px);
         }
 
@@ -161,7 +168,7 @@
         #loading {
             display: none;
             margin-top: 10px;
-            color: #4ca1af;
+            color: #3498db;
         }
 
         /* Success Pop-up */
@@ -171,16 +178,16 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #fff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             text-align: center;
             display: none;
-            animation: popIn 0.5s ease-in-out;
+            animation: popIn 0.7s ease-in-out;
         }
 
         #success-popup h2 {
-            color: #4ca1af;
+            color: #2980b9;
             margin-bottom: 10px;
         }
 
@@ -190,7 +197,7 @@
 
         #close-popup {
             padding: 10px 20px;
-            background-color: #4ca1af;
+            background-color: #2980b9;
             color: white;
             border: none;
             border-radius: 5px;
@@ -199,7 +206,7 @@
         }
 
         #close-popup:hover {
-            background-color: #2c3e50;
+            background-color: #3498db;
         }
 
         /* Responsive design */
@@ -208,7 +215,6 @@
                 margin: 20px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -226,11 +232,26 @@
             <input type="text" name="Full Name" placeholder="Full Name" required>
             <input type="tel" name="Phone" placeholder="Phone Number" required>
             <input type="email" name="Email" placeholder="Email Address" required>
-            <input type="text" name="Country" placeholder="Country" required>
+
+            <!-- Country dropdown with flags -->
+            <select id="country-select" name="Country" required>
+                <option value="" disabled selected>Select your country</option>
+                <option value="United States">🇺🇸 United States</option>
+                <option value="Canada">🇨🇦 Canada</option>
+                <option value="Germany">🇩🇪 Germany</option>
+                <option value="Australia">🇦🇺 Australia</option>
+                <option value="United Kingdom">🇬🇧 United Kingdom</option>
+                <option value="Japan">🇯🇵 Japan</option>
+                <option value="Brazil">🇧🇷 Brazil</option>
+                <option value="Other">Other (Please Specify)</option>
+            </select>
+
+            <!-- Country input field for manual entry -->
+            <input id="country-input" type="text" name="Manual Country" placeholder="Enter your country manually" style="display: none;">
+
             <textarea name="Message" placeholder="Why do you want to win?" required></textarea>
             <button type="submit">Submit</button>
         </form>
-        <!-- Loading spinner -->
         <p id="loading">Submitting your registration...</p>
     </div>
 
@@ -242,16 +263,23 @@
     </div>
 
     <script>
+        // Show manual country input if "Other" is selected
+        document.getElementById('country-select').addEventListener('change', function() {
+            const countryInput = document.getElementById('country-input');
+            if (this.value === 'Other') {
+                countryInput.style.display = 'block';
+                countryInput.setAttribute('required', true);
+            } else {
+                countryInput.style.display = 'none';
+                countryInput.removeAttribute('required');
+            }
+        });
+
         document.getElementById('registration-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form redirect
+            event.preventDefault(); // Prevent form from redirecting
+            document.getElementById('loading').style.display = 'block'; // Show loading spinner
 
-            // Show the loading indicator immediately after form submission
-            document.getElementById('loading').style.display = 'block';
-
-            // Capture the form data
-            var formData = new FormData(this);
-
-            // Send the data via Fetch API
+            const formData = new FormData(this);
             fetch('https://formspree.io/f/xdknvbop', {
                 method: 'POST',
                 body: formData,
@@ -259,28 +287,21 @@
                     'Accept': 'application/json'
                 }
             })
-            .then(function(response) {
-                document.getElementById('loading').style.display = 'none'; // Hide loading message
-
-                if (response.ok) {
-                    // Show the success pop-up
-                    document.getElementById('success-popup').style.display = 'block';
-                } else {
-                    alert('Oops! Something went wrong. Please try again.');
-                }
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('loading').style.display = 'none'; // Hide loading spinner
+                document.getElementById('success-popup').style.display = 'block'; // Show success pop-up
             })
-            .catch(function(error) {
-                document.getElementById('loading').style.display = 'none'; // Hide loading message
-                alert('Error submitting the form: ' + error.message);
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('loading').style.display = 'none'; // Hide loading spinner
+                alert('Something went wrong. Please try again.');
             });
         });
 
-        // Handle closing the pop-up
         document.getElementById('close-popup').addEventListener('click', function() {
-            document.getElementById('success-popup').style.display = 'none';
-            document.getElementById('registration-form').reset(); // Optionally clear the form
+            document.getElementById('success-popup').style.display = 'none'; // Close success pop-up
         });
     </script>
-
 </body>
 </html>
